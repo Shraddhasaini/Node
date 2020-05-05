@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  res.send('Hello World!! Hello Shraddha');
 });
 //app.post()
 //app.put()
@@ -11,4 +11,11 @@ app.get('/api/courses',(req,res) => {
   res.send([1,2,3]);
 });
 
-app.listen(3000, () => console.log('Listening on 3000'))
+// /api/courses/1
+app.get('/api/posts/:year/:month', (req ,res) => {
+  res.send(req.query);
+});
+
+// PORT
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listening on ${port} `));
